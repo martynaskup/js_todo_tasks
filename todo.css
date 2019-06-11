@@ -1,0 +1,234 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-size: 16px;
+    background-color: #8a2be2;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+header {
+    background-color: #8a2be2;
+    color: rgb(250,250,250);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* todo list */
+.todos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80vw;
+    margin: 80px auto 0;
+}
+
+/* grid template for the todo list */
+.todo-list {
+    max-height: 55vh;
+    overflow: auto;
+    background: rgb(104, 33, 170);
+    padding: 20px 10px 30px;
+    margin: 15px auto 0;
+    min-width: 230px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 15px 30px;
+}
+.todo-list div:last-of-type {
+    margin-bottom: 15px;
+}
+
+/* inside of an TODO */
+.flex-row-spread {
+    background-color: whitesmoke;
+    padding: 8px 5px 0;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.when-todo {
+    padding: 5px 10px;
+    font-weight: 800;
+    font-size: 1rem;
+}
+.past-due {
+    color: rgb(255, 0, 0);
+}
+.past-due::after {
+    content: " (Missed deadline)";
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+.what-todo {
+    font-style: italic;
+    padding: 0 20px;
+    font-size: 1.2rem;
+}
+
+/* timestamp & delete button */
+.do-this div:last-of-type{
+    margin: 8px 5px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.timestamp {
+    font-size: 0.8rem;
+    font-style: italic;
+}
+.delete {
+    background: url(https://img.icons8.com/ios/30/000000/waste.png) no-repeat;
+    background-size: 20px;
+    background-position: center;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+}
+
+/* Search input */
+input[type=search] {
+    margin: 5px 0 15px;
+    height: 30px;
+    width: 45%;
+    background: rgba(230,230,230, 0.5);
+    border-radius: 10px;
+    border-style: ridge;
+    text-align: center;
+    font-size: 1rem;
+}
+input[type=search]::placeholder {
+    color: white;
+}
+input[type=search]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+.hide{
+    display: none;
+}
+
+/* add a TODO item */
+.add-todo{
+    background: rgba(104, 33, 170, 0.6);
+    padding: 15px 10px;
+    margin: 20px auto 20px;
+    width: 80vw;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: 1fr 1.5fr 0.5fr 1fr;
+    grid-row-gap: 2px;
+    grid-template-areas: 
+        ". addButton addButton ."
+        "newTodo newTodo newTodo newTodo"
+        "label label label label"
+        "newDate newDate newTime newTime";
+}
+.newTodo::placeholder, .deadline-label, .newDate, .newTime {
+    text-align: center;
+}
+.add-button {
+    grid-area: addButton;
+    height: 35px;
+    background: rgba(230,230,230, 0.6);
+    font-weight: 600; 
+    border-style: outset;
+    border-radius: 20px;
+    margin-bottom: 5px;
+}
+.add-button:hover {
+    cursor: pointer;
+    background-color: whitesmoke;
+}
+.newTodo {
+    grid-area: newTodo;
+}
+.deadline-label {
+    grid-area: label;
+    color: rgb(250,250,250);
+    margin-top: 5px;
+}
+.newDate, .newTime {
+    padding: 0 5px;
+}
+.newTime {
+    grid-area: newTime;
+}
+.newDate {
+    grid-area: newDate;
+}
+input::-webkit-clear-button {
+    -webkit-appearance: none !important;
+}
+input[type=date]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+input::-webkit-inner-spin-button {
+  margin-top: 8px;
+}
+
+/* footer */
+footer, footer a {
+    color: rgb(250,250,250);
+}
+footer {
+    border-top: 1px solid rgb(250,250,250);
+    text-align: center;
+    padding: 10px;
+}
+footer div {
+    margin-top: 10px;
+}
+footer span {
+    margin: 0 15px;
+}
+footer img {
+    height: 18px;
+}
+/***************************
+    DIFFERENT DEVICE SIZES
+****************************/
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (min-width: 480px) {
+    .todo-list {
+        grid-template-columns: 1fr 1fr;
+        /* max-width: 100px; */
+    }
+    .add-todo {
+        max-width: 450px;
+    }
+    input[type=search] {
+        width: 30%;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .todo-list {
+        width: 600px;
+    }
+    footer p, footer div {
+        display: inline-block;
+    }
+    footer div {
+        margin-left: 10px;
+    }
+    footer span {
+        margin: 0 10px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 1024px) {
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1280px) {
+}
