@@ -35,7 +35,7 @@ header {
     max-height: 55vh;
     overflow: auto;
     background: rgb(104, 33, 170);
-    padding: 20px 10px 30px;
+    padding: 20px 10px 20px;
     margin: 15px auto 0;
     min-width: 230px;
     display: grid;
@@ -47,7 +47,7 @@ header {
 }
 
 /* inside of an TODO */
-.flex-row-spread {
+.do-this {
     background-color: whitesmoke;
     padding: 8px 5px 0;
     display: inline-flex;
@@ -199,7 +199,12 @@ footer img {
 @media screen and (min-width: 480px) {
     .todo-list {
         grid-template-columns: 1fr 1fr;
-        /* max-width: 100px; */
+    }
+    .todo-list div:last-of-type {
+        margin-bottom: 0;
+    }
+    .do-this {
+        padding: 8px 5px;
     }
     .add-todo {
         max-width: 450px;
