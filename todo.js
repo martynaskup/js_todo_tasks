@@ -4,13 +4,24 @@ const allTodos = document.querySelector('.todos');
 const addForm = document.querySelector('.add-todo');
 document.querySelector('.newDate').valueAsDate = new Date();
 
+// check if the deadline has been missed
+const checkDeadline = () => {
+    let todoItem = document.querySelectorAll('.do-this h2');           
+    storedTodos.forEach((item,index) => {
+        let now = new Date();
+        let nowStringFormat = dateFns.format(now, 'YYYY-MM-DD HH:mm');
+        if (nowStringFormat > item.deadline) { todoItem[index].classList.add('past-due')};
+    });
+};
+setInterval(checkDeadline,60000);
+
 // template for the todo items
-const addItemList = (date, todo, datestamp, id, pastDue='') => { 
+const addItemList = (date, todo, datestamp, id) => { 
     const formatDate = dateFns.format(date, 'ddd, DD.MM.YYYY HH:mm');
-    const formatDatestamp = dateFns.distanceInWordsToNow(datestamp,{includeSeconds: true} );
-    const template = `<div class="do-this flex-row-spread" id=${id}>
+    const formatDatestamp = dateFns.distanceInWordsToNow(datestamp,{includeSeconds: true});
+    const template = `<div class="do-this" id=${id}>
         <div>
-            <h2 class="when-todo ${pastDue}">${formatDate}</h2>
+            <h2 class="when-todo">${formatDate}</h2>
             <p class="what-todo">${todo}</p>
         </div>
         <div>
@@ -27,12 +38,14 @@ const showItems = (array) => {
     array.forEach((item,index) => {
         let { deadline, todo, datestamp } = item;
         if (dateFns.isPast(deadline)) {
-            addItemList(deadline, todo, datestamp, index, 'past-due');
+            addItemList(deadline, todo, datestamp, index);
         } else {
             addItemList(deadline, todo, datestamp, index, '')
         };         
-})};
-showItems(storedTodos);
+    });
+    checkDeadline();
+};
+window.addEventListener('load', showItems(storedTodos));
 
 allTodos.addEventListener('click', e => {
     e.preventDefault();
@@ -70,6 +83,7 @@ allTodos.addEventListener('click', e => {
         storedTodos = JSON.parse(localStorage.getItem('todos'));
         showItems(storedTodos);
     };
+    checkDeadline();
 });
 
 // search in the todo list
