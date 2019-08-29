@@ -6,6 +6,7 @@
   padding: 0;
 }
 body {
+  font-family: system-ui;
   font-size: 16px;
   background-color: #8a2be2;
   height: 100vh;
@@ -58,11 +59,11 @@ header {
 }
 .when-todo {
   padding: 5px 10px;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 1rem;
 }
 .past-due {
-  color: rgb(255, 0, 0);
+  color: rgb(216, 6, 6);
 }
 .past-due::after {
   content: " (Missed deadline)";
@@ -72,7 +73,7 @@ header {
 .what-todo {
   font-style: italic;
   padding: 0 20px;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 /* timestamp & delete button */
@@ -107,7 +108,7 @@ input[type="search"] {
   font-size: 1rem;
 }
 input[type="search"]::placeholder {
-  color: white;
+  color: #3c3c3c;
 }
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
@@ -143,7 +144,8 @@ input[type="search"]::-webkit-search-cancel-button {
   grid-area: addButton;
   height: 35px;
   background: rgba(230, 230, 230, 0.6);
-  font-weight: 600;
+  color: #3c3c3c;
+  font-weight: 700;
   border-style: outset;
   border-radius: 20px;
   margin-bottom: 5px;
