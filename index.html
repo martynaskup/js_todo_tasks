@@ -1,45 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>My To-Do List</title>
-    <link rel="stylesheet" href="todo.css">
+    <link rel="stylesheet" href="todo.css" />
 </head>
+
 <body>
     <header role="banner">
         <h1>I need to do this!</h1>
         <form class="search">
-            <input type="search" name="search" placeholder="search in the todo list" value="">
+            <input type="search" name="search" placeholder="search in the todo list" value="" />
         </form>
     </header>
 
     <main role="main">
         <div class="todos">
-            <div class="todo-list">
-            </div>
+            <div class="todo-list"></div>
             <form class="add-todo">
-                <input type="submit" class="add-button" value="Add a ToDo task">
-                <textarea class="newTodo" name="newTodo" id="newTodo" placeholder="Enter your new To-Do-task"></textarea>
+                <input type="submit" class="add-button" value="Add a ToDo task" />
+                <textarea class="newTodo" name="newTodo" id="newTodo"
+                    placeholder="Enter your new To-Do-task"></textarea>
                 <label for="newDate" class="deadline-label">When is the deadline for this task?</label>
-                <input type="date" class="newDate" name="newDate">
-                <input type="time" class="newTime" name="newTime" value="00:00">
-            </form>     
+                <input type="date" class="newDate" name="newDate" />
+                <input type="time" class="newTime" name="newTime" value="00:00" />
+            </form>
         </div>
-        
     </main>
     <footer role="contentinfo">
-        <p>&copy; 2019 by Martyna Skup </p>
+        <p>&copy; 2019 by Martyna Skup</p>
         <div>
-            <span><img src="./pic/iconfinder_008_Mail_183573.svg"> <a href="mailto: martyna.skup@yahoo.de">Email</a></span>
-            <span><img src="./pic/iconfinder_linkedin_386655.svg"> <a href="https://www.linkedin.com/in/martynaskup/">LinkedIn</a></span>
-            <span><img src="./pic/iconfinder_mark-github_298822.svg"> <a href="https://github.com/snikerslala">GitHub</a></span>
+            <span><img src="./pic/iconfinder_008_Mail_183573.svg" />
+                <a href="mailto: martyna.skup@yahoo.de">Email</a></span>
+            <span><img src="./pic/iconfinder_linkedin_386655.svg" />
+                <a href="https://www.linkedin.com/in/martynaskup/">LinkedIn</a></span>
+            <span><img src="./pic/iconfinder_mark-github_298822.svg" />
+                <a href="https://github.com/snikerslala">GitHub</a></span>
         </div>
-
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/2.0.0-alpha0/date_fns.min.js"></script>
     <script src="todos_database.js"></script>
     <script src="todo.js"></script>
 </body>
+
 </html>

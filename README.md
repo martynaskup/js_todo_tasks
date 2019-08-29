@@ -1,6 +1,6 @@
 # js_todo_tasks
-A JavaScript based app to store your to-do tasks in the browser local storage.
 
+A JavaScript based app to store your to-do tasks in the browser local storage.
 
 <h1>Features</h1>
 <ul>
