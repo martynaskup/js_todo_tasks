@@ -4,12 +4,12 @@
 
 const todos = [
   {
-    deadline: "2461-06-04 16:01",
+    deadline: "2461-03-24 16:01",
     todo: "Clean the room",
-    datestamp: "2100-06-04 16:01"
+    datestamp: "1980-08-05 16:01"
   },
   {
-    deadline: "2014-06-30 00:00",
+    deadline: "2014-05-30 00:00",
     todo: "Mom's birthday! Call her!",
     datestamp: "2014-06-30 00:00"
   },
@@ -19,9 +19,9 @@ const todos = [
     datestamp: "2019-06-22 00:00"
   },
   {
-    deadline: "2020-06-04 09:06",
+    deadline: "2020-12-04 09:06",
     todo: "Pay the bills",
-    datestamp: "2020-06-04 09:06"
+    datestamp: "2002-06-04 09:06"
   },
   {
     deadline: "2019-08-31 14:27",

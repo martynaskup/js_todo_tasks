@@ -6,13 +6,17 @@ document.querySelector(".newDate").valueAsDate = new Date();
 
 // check if the deadline has been missed
 const checkDeadline = () => {
-  let todoItem = document.querySelectorAll(".do-this h2");
+  let todoItem = document.querySelectorAll(".when-todo");
   storedTodos.forEach((item, index) => {
-    let now = new Date();
-    let nowStringFormat = dateFns.format(now, "YYYY-MM-DD HH:mm");
-    if (nowStringFormat > item.deadline) {
+    if (dateFns.isPast(item.deadline)) {
       todoItem[index].classList.add("past-due");
     }
+    /****** different way to check if the deadline is past-due ********/
+    /*let now = new Date();
+      let nowStringFormat = dateFns.format(now, 'YYYY-MM-DD HH:mm');
+      if (nowStringFormat > item.deadline) {
+        todoItem[index].classList.add('past-due');
+      }*/
   });
 };
 setInterval(checkDeadline, 60000);
@@ -41,20 +45,17 @@ const showItems = array => {
   list.innerHTML = "";
   array.forEach((item, index) => {
     let { deadline, todo, datestamp } = item;
-    if (dateFns.isPast(deadline)) {
-      addItemList(deadline, todo, datestamp, index);
-    } else {
-      addItemList(deadline, todo, datestamp, index, "");
-    }
+    addItemList(deadline, todo, datestamp, index);
   });
   checkDeadline();
 };
+
 window.addEventListener("load", showItems(storedTodos));
 
 allTodos.addEventListener("click", e => {
   e.preventDefault();
-  const target = e.target;
-  const targetParent = e.target.parentElement;
+  const { target } = e;
+  const targetParent = target.parentElement;
 
   // add a new TODO item
   if (target === addTodo) {
